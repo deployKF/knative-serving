@@ -2,6 +2,15 @@ module knative.dev/serving
 
 go 1.21
 
+// note, we have forked `knative/pkg` to apply some changes:
+//  - https://github.com/deployKF/knative-pkg/tree/fork-1.13
+//
+// to get the pseudo-version of the fork, run:
+//  - go get github.com/deployKF/knative-pkg@fork-1.13
+//
+// remember to run `./hack/update-deps.sh` when updating the version
+replace knative.dev/pkg => github.com/deployKF/knative-pkg v0.0.0-20241017230044-3db6060cea05
+
 require (
 	github.com/ahmetb/gen-crd-api-reference-docs v0.3.1-0.20210609063737-0067dc6dcea2
 	github.com/davecgh/go-spew v1.1.1
@@ -35,7 +44,7 @@ require (
 	knative.dev/caching v0.0.0-20240116080314-0a234c8b78ac
 	knative.dev/hack v0.0.0-20240123162936-f3f03ac0ab1a
 	knative.dev/networking v0.0.0-20240116081125-ce0738abf051
-	knative.dev/pkg v0.0.0-20240116073220-b488e7be5902
+	knative.dev/pkg v0.0.0
 	sigs.k8s.io/yaml v1.4.0
 )
 
